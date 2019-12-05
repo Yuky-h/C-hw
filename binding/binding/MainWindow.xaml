@@ -1,0 +1,62 @@
+﻿<Window x:Class="binding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:binding"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600">
+    <Window.Resources>
+        <local:Item x:Key="items"/>
+        <DataTemplate x:Key="MyTemplate">
+            <Border Name="border">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Food Name:"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path= inventoryname}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Food Type:"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=ivntorytype}"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Food Description:"/>
+                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=inventorydescription}"/>
+                    
+                    <TextBlock Grid.Row="3" Grid.ColumnSpan="2"/>
+
+                </Grid>
+            </Border>
+        </DataTemplate>
+        
+        
+
+    </Window.Resources>
+
+    <StackPanel>
+
+        <TextBlock Margin="10,0,0,0"> Type of food selection </TextBlock>
+        <ListBox Name="mylistBox1" SelectionChanged="OnSelected"
+                 SelectedIndex="0" Margin="10,0,0,0">
+
+            <ListBoxItem>Wet</ListBoxItem>
+            <ListBoxItem>Mixed</ListBoxItem>
+            <ListBoxItem>Dry</ListBoxItem>
+        </ListBox>
+        <TextBlock Margin="10,10,0,-10"> Menu </TextBlock>
+        <ListBox Width="400" Margin="10" Name="mylistBox2"
+                 HorizontalContentAlignment="Stretch"
+                 ItemsSource="{Binding}"
+                 ItemTemplate="{StaticResource MyTemplate}"
+                 SelectionChanged="OnSelected2"/>
+        
+    </StackPanel>
+    
+    
+    
+</Window>
