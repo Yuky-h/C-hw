@@ -22,11 +22,11 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Food Name:"/>
-                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path= inventoryname}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path= name}"/>
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="Food Type:"/>
-                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=ivntorytype}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path= type}"/>
                     <TextBlock Grid.Row="2" Grid.Column="0" Text="Food Description:"/>
-                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=inventorydescription}"/>
+                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path= description}"/>
                     
                     <TextBlock Grid.Row="3" Grid.ColumnSpan="2"/>
 
@@ -41,20 +41,21 @@
     <StackPanel>
 
         <TextBlock Margin="10,0,0,0"> Type of food selection </TextBlock>
-        <ListBox Name="mylistBox1" SelectionChanged="OnSelected"
+        <ListBox x:Name="mylistBox1" SelectionChanged="OnSelected"
                  SelectedIndex="0" Margin="10,0,0,0">
 
-            <ListBoxItem>Wet</ListBoxItem>
-            <ListBoxItem>Mixed</ListBoxItem>
-            <ListBoxItem>Dry</ListBoxItem>
+            <ListBoxItem Content="Wet"/>
+            <ListBoxItem Content="Mixed"/>
+            <ListBoxItem Content="Dry"/>
+            
         </ListBox>
-        <TextBlock Margin="10,10,0,-10"> Menu </TextBlock>
-        <ListBox Width="400" Margin="10" Name="mylistBox2"
+        <TextBlock Margin="10,10,0,-10"><Run Text="Menu : Click to see the price"/></TextBlock>
+        <ListBox Width="400" Margin="96,10" x:Name="mylistBox2"
                  HorizontalContentAlignment="Stretch"
                  ItemsSource="{Binding}"
                  ItemTemplate="{StaticResource MyTemplate}"
                  SelectionChanged="OnSelected2"/>
-        
+
     </StackPanel>
     
     

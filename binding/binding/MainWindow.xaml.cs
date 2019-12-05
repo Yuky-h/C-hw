@@ -24,14 +24,18 @@ namespace binding
             InitializeComponent();
         }
 
+        //List type click 
+
         private void OnSelected(object sender, SelectionChangedEventArgs e)
         {
+           
+
           if((sender as ListBox). SelectedItem !=null)
             {
                 string foodtype = ((sender as ListBox).SelectedItem as ListBoxItem).Content.ToString();
 
                 DataContext = from item in store.Inventory
-                              where item.type.ToString()==foodtype
+                              where item.type.ToString() == foodtype
                               select item;
             }
 
@@ -46,6 +50,9 @@ namespace binding
             
 
         }
+
+
+
 
         ////listBox-Refresh for Add items?
         //public delegate void RefreshList(FoodType foodType);

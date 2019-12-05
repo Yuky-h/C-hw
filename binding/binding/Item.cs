@@ -9,16 +9,17 @@ namespace binding
     public class Item
     {
 
-        public string description;
-        public string name;
-        public string price;
-        FoodType type;
+        public string description { get; set; }
+        public string name { get; set; }
+        public string price { get; set; }
+        public FoodType type{ get; set; }
+        
 
         public Item()
         {
 
         }
-      
+       
 
 
         public void About()
@@ -40,7 +41,7 @@ namespace binding
     {
         int amountounces;
         internal Array ingredients;
-        FoodType type;
+        
 
         public Food(string description, string name, string price, FoodType _type)
         {
